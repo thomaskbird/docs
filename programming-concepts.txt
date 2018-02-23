@@ -1,0 +1,7 @@
+Programming concepts:
+
+1.  coupling    -   It's when you make a single change to one piece of functionality and it breaks other things. Decoupling
+                    is the idea that if you make changes to one piece of code it should not affect other pieces and still 
+                    work, thereby reducing the level of maintenace 
+                    
+2.  
