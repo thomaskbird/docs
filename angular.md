@@ -123,3 +123,36 @@ Then wherever you would like to use the modules component simply put that module
 })
 export class SiblingModule {}
 ```
+
+## Event syntax in Angular 4
+`<a (click)="someComponentMethod()">Link</a>`
+
+## Binding params to custom components Angular 4
+`<custom-component [text]="'string value'" [item]="componentProperty"></custom-component>`
+
+## Receiving bindings in the component definition
+
+```
+import {Input} from '@angular/core';
+
+@Component({
+  selector: 'custom-component',
+  templateUrl: './custom-component.component.html',
+  styleUrls: ['./custom-component.component.scss']
+})
+export class CustomComponentComponent implements OnInit {
+  @Input() text: string = '';
+  @Input() item: any = [];
+}
+```
+
+`@Input()` defines this variable is a binding. Next is the name of the parameter to be bound to the component, following that is the expected `type` and then you can assign a default value. Whatever the default value is assigned will be overwritten once the parameter has been binded to the component. 
+
+
+## Syntax for defining variables in typescript on a class in Angular 4
+`private variableName: string = '';`
+
+First you see `private` which can be `public`, `protected` or `private`. Second is the variable's name, then the data type expected and finally the default value.
+
+
+
