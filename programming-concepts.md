@@ -12,3 +12,5 @@
     -   is a software development process that relies on the repetition of a very short development cycle: first the developer writes an (initially failing) automated test case that defines a desired improvement or new function, then produces the minimum amount of code to pass that test, and
 6. Continous Integration
     - is the practice of merging all developer working copies to a shared mainline several times a day. Grady Booch first named and proposed CI in his 1991 method, although he did not advocate integrating several times a day. Extreme programming (XP) adopted the concept of CI and did advocate integrating more than once per day – perhaps as many as tens of times per day.
+7. Coupling
+    - This is when you make a single change to one piece of functionality and it breaks other things. Decoupling is the idea that if you make changes to one piece of code it should not affect other pieces and still work, thereby reducing the level of maintenance
