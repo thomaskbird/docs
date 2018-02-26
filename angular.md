@@ -1,4 +1,6 @@
-AngularJS Generating Modules
+# AngularJS
+
+## Generating Modules
 
 I wanted to create an angular module, that contained all of the subsequent angular views, I did this for the users.
 
@@ -8,10 +10,12 @@ Generate an Angular Module using the cli, do the following command:
 
 This will create the following directory structure
 
-	src
-		app
-			users
-				users.module.ts
+```
+src
+	app
+		users
+			users.module.ts
+```
 
 From their you can generate the overall parent view container that will hold the child components in the `<router-outlet></router-outlet>` tag.
 
@@ -19,27 +23,32 @@ From their you can generate the overall parent view container that will hold the
 
 This will add the following files to our `src/app/users` directory:
 
-	users.component.css
-	users.component.html
-	users.component.spec.ts
-	users.component.ts
+```
+users.component.css
+users.component.html
+users.component.spec.ts
+users.component.ts
+```
 
 Once this is all finished you can start adding additional child views by creating child components:
 
-	`ng generate component users/list`
-	`ng generate component users/add`
-	`ng generate component users/single`
+`ng generate component users/list`
+`ng generate component users/add`
+`ng generate component users/single`
 
 This will give you the following directory structure:
-	
-	src
-		app	
-			users
-				add
-				list
-				single
+
+```	
+src
+	app	
+		users
+			add
+			list
+			single
+```
 
 For routing, update the following file `src/app/users/users.module.ts` and add the following code:
+
 ```
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -93,3 +102,24 @@ Then import the module by adding the following line to the `@NgModule.imports` a
 	`UsersModule`
 
 And thats it, just change the following to meet your needs for other views
+
+## Using components defined in sibling module
+
+When using a sibling modules components in another module, you need to make sure to put the component into the `declarations` and `exports` arrays of the modules definition. For example:
+
+```
+@NgModule({
+  imports: [UseInOtherModuleComponent]
+  declarations: [UseInOtherModuleComponent]
+})
+export class SomeModule {}
+```
+
+Then wherever you would like to use the modules component simply put that modules definition into the `imports` array. Once this is done you will be able to access that modules components and use them inside that module. Note: Make sure if you are using the modules component in another component that you include it in the direct parents module
+
+```
+@NgModule({
+  imports: [SomeModule]
+})
+export class SiblingModule {}
+```
