@@ -34,7 +34,9 @@ console.log(users);
 
 What you'll notice about `.map()` and `.forEach()` is that the code is exactly the same minus the function name and still end up with the same exact result.
 
-Reference: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map`
+**Reference:** `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map`
+
+----------
 
 ### Javascripts `fetch()`
 
@@ -59,4 +61,6 @@ fetch(url, {
   .catch(error => console.error(error));
 ```
 
-Reference: `https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch`
+**Reference:** `https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch`
+
+----------
