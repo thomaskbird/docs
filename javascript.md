@@ -34,6 +34,8 @@ console.log(users);
 
 What you'll notice about `.map()` and `.forEach()` is that the code is exactly the same minus the function name and still end up with the same exact result.
 
+Reference: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map`
+
 ### Javascripts `fetch()`
 
 Fetch is a built in method for creating ajax requests
