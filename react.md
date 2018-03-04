@@ -1,5 +1,13 @@
 # ReactJS
 
+## App Creation
+**Command to create a react app**
+`Typescript`
+`create-react-app <appName> --scripts-version=react-scripts-ts`
+
+`Plain javascript`
+`create-react-app <appName>`
+
 ## Components
 
 #### Binding `this` to a method
