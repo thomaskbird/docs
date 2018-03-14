@@ -53,3 +53,17 @@ In a stateless component you can't access the property like this, it must be don
 
 `props.someVar`
 
+## Routing
+
+#### Adding default route
+This is very simple to accomplish by utilizing the `<Switch>...Routes go here...</Switch>`. The switch statement essentially says render the very route that matches. Here is an example of how to accomplish this:
+
+```
+<Router>
+  <Switch>
+    <Route path="/some/path" component={SomeComponent} />
+    <Route path="*" component={DefaultComponent} />
+  </Switch>
+</Router> 
+```
+
