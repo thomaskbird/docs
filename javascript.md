@@ -89,3 +89,31 @@ Foo.call(this, [arg1, arg2, arg3]);
 ```
 
 ----------
+
+### Understanding .bind()
+
+Let's take this code for example:
+
+```
+function user() {
+  this.model = {};
+
+  function setModel(key, val) {
+    this.model[key] = val;
+  }
+}
+```
+Now if we were to try to call at any point the `setModel()` function we would run into the issue that `this.model` would be `undefined`. This is because the innerscope of `setModel()` does not know the context of the outside scope. We can fix this easily by telling it this should be your scope.
+
+```
+function user() {
+  this.model = {};
+
+  function setModel(key, val) {
+    this.model[key] = val;
+  }.bind(this);
+}
+```
+
+`.bind(this);` this forces the function to listen to the outside scopes `this` rather than it's own `this`.
+----------
