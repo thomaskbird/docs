@@ -22,3 +22,5 @@ Usage:
 ```
 const name: Iname = { key: "name", val: "Johnson" };
 ```
+
+Declarations `public`, `static` and `protected` are called modifiers

@@ -64,3 +64,28 @@ fetch(url, {
 **Reference:** `https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch`
 
 ----------
+
+### Difference between .call() & .apply()
+
+The difference is very simple, the first parameter to each of the methods is what you want to designate as the `this` property inside of the actual function being called. `.apply()` can only receive two arguments, first the `this` context and second an array of values. `.call()` receives as its first parameter the `this` context and can receive any number of props after that separated by comma.
+
+So let's take this example:
+```
+function Foo(arg1, arg2, arg3) {
+  // do something
+}
+```
+
+Using `.call()`
+
+```
+Foo.call(this, arg1, arg2, arg3);
+```
+
+Using `.apply()`
+
+```
+Foo.call(this, [arg1, arg2, arg3]);
+```
+
+----------

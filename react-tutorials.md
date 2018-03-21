@@ -6,3 +6,5 @@
   - React cli repo with instructions for simple tasks to get you started.
 - https://www.robinwieruch.de/react-fetching-data/
   - Shows how to work with api's and dynamic data
+- https://developmentarc.gitbooks.io/react-indepth/content/
+  - Short guide on React
