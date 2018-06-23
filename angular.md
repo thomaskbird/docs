@@ -154,5 +154,66 @@ export class CustomComponentComponent implements OnInit {
 
 First you see `private` which can be `public`, `protected` or `private`. Second is the variable's name, then the data type expected and finally the default value.
 
+## Sharing data between components
+There will be times when you have components that are contained within different modules, but you need to listen to a change in one component in another in order to trigger some sort of change in the other component. This can be achieved by doing this:
+
+#### ComponentOne
+```
+import { Component, OnInit } from '@angular/core';
+import { SharedService } from '<shared_service_path>';
+
+@Component({
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.scss']
+})
+export class ComponentOne implements OnInit {
+  constructor(
+    private shared: SharedService
+  ) {
+    this.shared.changeTrigger(false);
+  }
+}
+
+```
+
+#### SharedService
+```
+import { Injectable } from '@angular/core';
+import {Subject} from 'rxjs';
+
+@Injectable()
+export class SharedService {
+  public varToListenFor: Subject<any> = new Subject();
+
+  changeTrigger(val: boolean) {
+    this.varToListenFor.next(val);
+  }
+}
+```
+
+#### ComponentTwo
+```
+import { Component, OnInit } from '@angular/core';
+import { SharedService } from '<shared_service_path>';
+
+@Component({
+  selector: 'app-list',
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.scss']
+})
+export class ComponentTwo implements OnInit {
+
+  constructor(
+    private shared: SharedService,
+  ) {
+    this.shared.varToListenFor.subscribe(val => {
+      console.log('SharedService', val);
+    });
+  }
+}
+```
+
+When the `changeTrigger()` is called you can pass it a set of values, the `varToListenFor` is a variable that when subscribed to can listen for changes. The `ComponentOne` triggers the change in the `changeTrigger` method, the `varToListenFor` calls the `next()` method passing a new value to the `SecondComponent` with the `.subscribe()` method attached. At any point you can run logic on the values being passed, change or emit new values based on input.
 
 
