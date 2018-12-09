@@ -166,7 +166,7 @@ First you see `private` which can be `public`, `protected` or `private`. Second 
 
 
 ## Sharing components between modules
-In order for a component to be usable inside of another module you must import the component into the module that you want to expose the component from. So let's say we have a `HelpersModule` that will export an abstract component `DatepickerComponent` this will be achieved with the following code. 
+In order for a component to be usable inside of another module you must import the component into the module that you want to expose the component from. So let's say we have a `HelpersModule` that will export an abstract component `DatepickerComponent` this will be achieved with the following code.
 
 `helpers.module.ts`
 
@@ -192,13 +192,66 @@ The important part to note is that, the component must be included in both the `
 If you ever have to do anything with the values that are being binded to the component you will need to use the `ngOnInit()` lifecycle hook, until the code reaches this point known of the bindings will be available.
 
 
+## Sharing data between components
+There will be times when you have components that are contained within different modules, but you need to listen to a change in one component in another in order to trigger some sort of change in the other component. This can be achieved by doing this:
 
+#### ComponentOne
+```
+import { Component, OnInit } from '@angular/core';
+import { SharedService } from '<shared_service_path>';
 
+@Component({
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.scss']
+})
+export class ComponentOne implements OnInit {
+  constructor(
+    private shared: SharedService
+  ) {
+    this.shared.changeTrigger(false);
+  }
+}
 
+```
 
+#### SharedService
+```
+import { Injectable } from '@angular/core';
+import {Subject} from 'rxjs';
 
+@Injectable()
+export class SharedService {
+  public varToListenFor: Subject<any> = new Subject();
 
+  changeTrigger(val: boolean) {
+    this.varToListenFor.next(val);
+  }
+}
+```
 
+#### ComponentTwo
+```
+import { Component, OnInit } from '@angular/core';
+import { SharedService } from '<shared_service_path>';
 
+@Component({
+  selector: 'app-list',
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.scss']
+})
+export class ComponentTwo implements OnInit {
+
+  constructor(
+    private shared: SharedService,
+  ) {
+    this.shared.varToListenFor.subscribe(val => {
+      console.log('SharedService', val);
+    });
+  }
+}
+```
+
+When the `changeTrigger()` is called you can pass it a set of values, the `varToListenFor` is a variable that when subscribed to can listen for changes. The `ComponentOne` triggers the change in the `changeTrigger` method, the `varToListenFor` calls the `next()` method passing a new value to the `SecondComponent` with the `.subscribe()` method attached. At any point you can run logic on the values being passed, change or emit new values based on input.
 
 
