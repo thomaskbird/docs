@@ -35,11 +35,11 @@ Example:
 
 ```
 interface User {
-	id: string;
-	firstName: string;
-	lastName: string;
-	email: string;
-	created: string;
+    id: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    created: string;
 }
 ```
 
@@ -51,19 +51,22 @@ This is the same as saying:
 
 ```
 interface UserPartial {
-	id: string;
-	firstName: string;
-	lastName: string;c
+    id: string;
+    firstName: string;
+    lastName: string;c
 }
 ```
 Declarations `public`, `static` and `protected` are called modifiers
 
 ## Example interface for a user
+```
 enum AddressType {
   home = "Home",
   work = "Work"
 }
+```
 
+```
 interface Address {
   type: AddressType;
   address1: string;
@@ -72,19 +75,25 @@ interface Address {
   state: string;
   zip: number;
 }
+```
 
+```
 enum PhoneType {
   home = "Home",
   work = "Work",
   mobile = "Mobile",
   fax = "Fax"
 }
+```
 
+```
 interface Phone {
   type: PhoneType;
   number: string;
 }
+```
 
+```
 interface User {
   firstName: string;
   lastName: string;
@@ -93,6 +102,7 @@ interface User {
   age: number;
   email: string;
 }
+```
 
 ### Non-null assertions
 Sometimes in your code you may have something that maybe null or the linter can't see where it's being set. You can tell the linter to not worry about that if you know that it will be set. For instance:
