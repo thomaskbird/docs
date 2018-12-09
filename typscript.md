@@ -22,3 +22,37 @@ Usage:
 ```
 const name: Iname = { key: "name", val: "Johnson" };
 ```
+
+## List of types
+
+### Partial
+`Type Partial = Partial<Interface>` - This will take any interface and make all of its values optional
+
+### Pick
+`Type Partial = Pick<Interface, "Pipe" | "Separated" | "Properties">;`
+
+Example: 
+
+```
+interface User {
+	id: string;
+	firstName: string;
+	lastName: string;
+	email: string;
+	created: string;
+}
+```
+
+```
+type UserPartial = Pick<User, "id" | "firstName" | "lastName">;
+```
+
+This is the same as saying:
+
+```
+interface UserPartial {
+	id: string;
+	firstName: string;
+	lastName: string;c 
+}
+```
