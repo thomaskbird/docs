@@ -214,6 +214,23 @@ export class ComponentTwo implements OnInit {
 }
 ```
 
+#### AppModule
+```
+import { NgModule } from '@angular/core';
+import { SharedService } from '<shared_service_path>';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+  ],
+  imports: [],
+  exports: [],
+  providers: [SharedService],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
 When the `changeTrigger()` is called you can pass it a set of values, the `varToListenFor` is a variable that when subscribed to can listen for changes. The `ComponentOne` triggers the change in the `changeTrigger` method, the `varToListenFor` calls the `next()` method passing a new value to the `SecondComponent` with the `.subscribe()` method attached. At any point you can run logic on the values being passed, change or emit new values based on input.
 
 
