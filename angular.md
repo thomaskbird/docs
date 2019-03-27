@@ -154,6 +154,44 @@ export class CustomComponentComponent implements OnInit {
 
 First you see `private` which can be `public`, `protected` or `private`. Second is the variable's name, then the data type expected and finally the default value.
 
+## Module Imports, Exports & Declarations
+|-------------------------------|---------------------------------------------------------------------|
+| Import                        | makes the exported declarations of other modules available in the current module |
+| Declarations                  | are to make directives (including components and pipes) from the current module available to other directives in the current module. Selectors of directives, components or pipes are only matched against the HTML if they are declared or imported. |
+| Exports                       | makes the components, directives, and pipes available in modules that add this module to imports.  exports can also be used to re-export modules such as CommonModule and FormsModule, which is often done in shared modules. |
+
+
+
+
+
+
+## Sharing components between modules
+In order for a component to be usable inside of another module you must import the component into the module that you want to expose the component from. So let's say we have a `HelpersModule` that will export an abstract component `DatepickerComponent` this will be achieved with the following code.
+
+`helpers.module.ts`
+
+```
+import { DatepickerComponent } from '<your_path_to_component>';
+
+@NgModule({
+  imports: [
+  ],
+  exports: [
+    DatepickerComponent
+  ],
+  declarations: [
+    DatepickerComponent
+  ]
+})
+export class HelpersModule { }
+```
+
+The important part to note is that, the component must be included in both the `exports` and `declarations`. From there any other modules components can utilize the `DatepickerComponent` by importing it into the module that the component is defined in that will use our newly created `DatepickerComponent`.
+
+## Binding to a component
+If you ever have to do anything with the values that are being binded to the component you will need to use the `ngOnInit()` lifecycle hook, until the code reaches this point known of the bindings will be available.
+
+
 ## Sharing data between components
 There will be times when you have components that are contained within different modules, but you need to listen to a change in one component in another in order to trigger some sort of change in the other component. This can be achieved by doing this:
 
