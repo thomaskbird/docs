@@ -4,9 +4,25 @@ This repository is simply a place where I can grab documentation and examples I'
 
 ## Table of contents
 - Frontend
-	- Frameworks
-		- Angular
-			- [Angular](angular.md)
+	- HTML
+	- CSS
+	- Javascript
+		- Frameworks
+			- [Frameworks](frameworks.md)
+			- Angular
+				- [Angular](angular.md)
+				- [Angular Articles List](angular-articles.md)
+			- React
+				- [React](react.md)
+				- [React Articles List](react-articles.md)
 - Backend
 	- Frameworks
 - Terminal
+- Build Tools
+- IDE's
+	- [Hotkeys](IDE.md)
+	- Webstorm
+		- [Hotkeys](hotkeys.md)
+- Random Articles
+	- [Articles](articles.md)
+- 
