@@ -6,9 +6,11 @@ This repository is simply a place where I can grab documentation and examples I'
 - Frontend
 	- HTML
 	- CSS
+		- [Rule explanation & Definition](css.md)
+		- [CSS Articles](css-articles.md)
 	- Javascript
 		- Frameworks
-			- [Frameworks](frameworks.md)
+			- [Frameworks explanation](frameworks.md)
 			- Angular
 				- [Angular](angular.md)
 				- [Angular Articles List](angular-articles.md)
@@ -16,9 +18,11 @@ This repository is simply a place where I can grab documentation and examples I'
 				- [React](react.md)
 				- [React Articles List](react-articles.md)
 - Backend
+	- [Backend Articles](backend-articles.md)
 	- Frameworks
 - Terminal
 - Build Tools
+	- [Build Tool Explanation](build-tool.md)
 - IDE's
 	- [Hotkeys](IDE.md)
 	- Webstorm
