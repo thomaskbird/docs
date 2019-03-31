@@ -254,4 +254,85 @@ export class ComponentTwo implements OnInit {
 
 When the `changeTrigger()` is called you can pass it a set of values, the `varToListenFor` is a variable that when subscribed to can listen for changes. The `ComponentOne` triggers the change in the `changeTrigger` method, the `varToListenFor` calls the `next()` method passing a new value to the `SecondComponent` with the `.subscribe()` method attached. At any point you can run logic on the values being passed, change or emit new values based on input.
 
+## Forms
+
+This is how forms can work using Angular 6
+
+Let's say we have a `FormComponent.ts`, the component file should look like this:
+
+```
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-form',
+  templateUrl: './form.component.html',
+  styleUrls: ['./form.component.css']
+})
+export class FormComponent {
+  title = 'form';
+
+  formVals = {
+    name: null,
+    email: null
+  };
+
+  onSubmit(vals) {
+    console.log(vals);
+  }
+}
+
+```
+
+Then your template should look something like this:
+
+```
+<form (ngSubmit)="this.onSubmit(formVals)">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="formVals.name" />
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" [(ngModel)]="formVals.email" />
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
+```
+
+Now when this form is submitted the following will be logged out:
+
+```
+{
+  name: '...',
+  email: '...'
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
