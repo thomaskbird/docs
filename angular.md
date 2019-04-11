@@ -271,4 +271,127 @@ export class AppModule { }
 
 When the `changeTrigger()` is called you can pass it a set of values, the `varToListenFor` is a variable that when subscribed to can listen for changes. The `ComponentOne` triggers the change in the `changeTrigger` method, the `varToListenFor` calls the `next()` method passing a new value to the `SecondComponent` with the `.subscribe()` method attached. At any point you can run logic on the values being passed, change or emit new values based on input.
 
+## Forms
+
+This is how forms can work using Angular 6
+
+Let's say we have a `FormComponent.ts`, the component file should look like this:
+
+```
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-form',
+  templateUrl: './form.component.html',
+  styleUrls: ['./form.component.css']
+})
+export class FormComponent {
+  title = 'form';
+
+  formVals = {
+    name: null,
+    email: null
+  };
+
+  onSubmit(vals) {
+    console.log(vals);
+  }
+}
+
+```
+
+Then your template should look something like this:
+
+```
+<form (ngSubmit)="this.onSubmit(formVals)">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="formVals.name" />
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" [(ngModel)]="formVals.email" />
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
+```
+
+Now when this form is submitted the following will be logged out:
+
+```
+{
+  name: '...',
+  email: '...'
+}
+```
+
+## Transclusion
+
+Angular transclusion allows you to create components with slots or placeholders for where content should be placed. This is especially helpful when creating things like templates. For this brief overview we will create a `TwoColumnComponent`. It will have a large 3/4 main content area and a 1/4 width sidebar area.
+
+Below is an example of what the template file for the `TwoColumnComponent` might look like. The important thing to note is the use of `<ng-content></ng-content>`, this is essentially our placeholder. It has the attribute `select`, it's kind of similar to a css selector, in that it will look into what the component wraps for the given selector. In this case we have `div.content` for the first `ng-content`. This says that whereever this component is being used look for a `div` tag with the class of `content`. Below is very similar except this time we are targeting a `div` tag with a class of `sidebar`.
+
+So when the selector is found, it will take the content of the targetted divs and place it inside.
+
+**TwoColumnComponent**
+
+```
+<div class="wrap">
+  <div class="content">
+    <ng-content select="div.content"></ng-content>
+  </div>
+  <div class="sidebar">
+    <ng-content select="div.sidebar"></ng-content>
+  </div>
+</div>
+```
+
+Below is an example usage:
+```
+<TwoColumnComponent>
+  <div class="content">
+    TEST CONTENT
+  </div>
+  <div class="sidebar">
+    SIDEBAR
+  </div>
+</TwoColumnComponent>
+```
+Output would be something like this:
+
+```
+<div class="wrap">
+  <div class="content">
+    TEST CONTENT
+  </div>
+  <div class="sidebar">
+    SIDEBAR
+  </div>
+</div>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

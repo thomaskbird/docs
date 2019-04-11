@@ -33,5 +33,11 @@ if jobTitle != nil {
 }
 ```
 
+## Digging deeper into the ui
+- When creating view elements, you can add them under the ViewController, once the elements are added open up the `ViewController.swift` You can then click on your ui assets once you've arranged them in the preview window and `ctrl` drag them over into the `ViewController`. This will create an instance of them inside your controller.
+
+
 ## Resources
 - https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html
+- https://codewithchris.com/how-to-make-iphone-apps-with-no-programming-experience/
+- https://medium.com/quick-code/lets-build-a-command-line-app-in-swift-328ce274f1cc
