@@ -8,3 +8,4 @@ Hotkeys
 | command + click -> target.              | Takes you to the declaration of the target                                |
 | command + o                             | Brings up dialogue to open file by typing name                            |
 | shift + fn + F6                         | Allows you highlight text and replace it whereever it is being used	      |
+| ctrl + option + o 					  | Cleans up any unused imports 											  |
