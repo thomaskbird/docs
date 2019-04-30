@@ -4,3 +4,4 @@
 - [React cli repo with instructions for simple tasks to get you started.](https://github.com/facebook/create-react-app)
 - [Shows how to work with api's and dynamic data](https://www.robinwieruch.de/react-fetching-data/)
 - [Short guide on React](https://developmentarc.gitbooks.io/react-indepth/content/)
+- [Good package for supporting touch gestures & mouse events like dragging](https://github.com/voronianski/react-swipe)
