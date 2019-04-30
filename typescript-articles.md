@@ -1,4 +1,4 @@
 # Typescript Articles
 
-- https://www.typescriptlang.org/docs/handbook/basic-types.html
-  - Documentation for typescript
+- [Documentation for typescript](https://www.typescriptlang.org/docs/handbook/basic-types.html)
+- [types](https://github.com/sindresorhus/type-fest)

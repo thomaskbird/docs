@@ -5,3 +5,6 @@
 - [Shows how to work with api's and dynamic data](https://www.robinwieruch.de/react-fetching-data/)
 - [Short guide on React](https://developmentarc.gitbooks.io/react-indepth/content/)
 - [Good package for supporting touch gestures & mouse events like dragging](https://github.com/voronianski/react-swipe)
+- [react-spring](https://www.react-spring.io/docs/hooks/api) Animations
+- [lottie](https://airbnb.io/lottie/#/) Animations
+- 
