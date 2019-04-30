@@ -53,6 +53,19 @@ In a stateless component you can't access the property like this, it must be don
 
 `props.someVar`
 
+##### Hooks
+When using a stateless component you can use `useEffect`, this is basically to keep from actually rerendering if the value hasn't changed. Take the code example below:
+
+```
+useEffect(() => {
+  document.title = `You clicked ${count} times`;
+}, [count]);
+```
+
+This `useEffect` will only ever occur when the `count` value has changed. It is essentially the same thing in a stateful component as using `componentDidUpdate(prevProps, prevState)` then inside the hook comparing the previous to the current value for changes.
+
+Reference [https://reactjs.org/docs/hooks-effect.html](https://reactjs.org/docs/hooks-effect.html)
+
 ## Routing
 
 #### Adding default route
@@ -66,4 +79,6 @@ This is very simple to accomplish by utilizing the `<Switch>...Routes go here...
   </Switch>
 </Router> 
 ```
+
+
 
