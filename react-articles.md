@@ -7,4 +7,4 @@
 - [Good package for supporting touch gestures & mouse events like dragging](https://github.com/voronianski/react-swipe)
 - [react-spring](https://www.react-spring.io/docs/hooks/api) Animations
 - [lottie](https://airbnb.io/lottie/#/) Animations
-- 
+- [Building middleware](https://hptechblogs.com/using-json-web-token-react/)
