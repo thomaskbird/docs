@@ -1,6 +1,0 @@
-SSH 
-
-  Godaddy
-    ssh godoploid@148.72.12.204
-
-  

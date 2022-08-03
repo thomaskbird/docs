@@ -3,7 +3,7 @@
 ### Logging commit history to a file
 `git log --since="last month" --pretty=format:'%h,%an,%ar,%s' > log.csv`
 
-[git log - documentation][http://schacon.github.io/git/git-log.html]
+[git log - documentation](http://schacon.github.io/git/git-log.html)
 
 ### Copying file contents
-pbcopy < ~/.ssh/file-to-copy
+`pbcopy < ~/.ssh/file-to-copy`
