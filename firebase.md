@@ -39,6 +39,34 @@ const app = initializeApp(firebaseConfig);
 }
 ```
 
+4. Ensure that you allow firestore rules to be read and write change the following from:
+
+```js
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
+```
+
+to
+
+```js
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
+```
+
 ## Deploy your app
 1. Sign into Google: `firebase login`
 2. Initialize your project `firebase init`
