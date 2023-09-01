@@ -67,6 +67,8 @@ service cloud.firestore {
 }
 ```
 
+Be warned that you should never leave this for production it basically offers absolutely no protection against malicious actors.
+
 ## Deploy your app
 1. Sign into Google: `firebase login`
 2. Initialize your project `firebase init`

@@ -51,3 +51,26 @@ if ($http_origin == "http://www.domain1.com" || $http_origin == "http://www.doma
     header("Access-Control-Allow-Origin: $http_origin");
 }
 ```
+
+## Creating Virtual Hosts
+- Start by `cd` into your `/etc/apache2/sites-available` and running the following command:
+- `sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/<YOUR_DOMAIN>.conf`
+- This will create a copy of the conf file to setup your virtual host
+- `vim` your file new conf file and add the updated details
+- It may look something like this:
+    ```
+    <VirtualHost *:80>
+  ...
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/html
+    ServerName your_domain_1
+    ServerAlias www.your_domain_1
+    DocumentRoot /var/www/your_domain_1/public_html
+   ...
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>```
+
+- Then run the following command to enable the site:
+- `sudo a2ensite YOUR_DOMAIN.conf`
+- Then restart the server by running `systemctl restart apache2`
