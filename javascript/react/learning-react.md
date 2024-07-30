@@ -26,10 +26,17 @@
 
 ### Learning path
 
-1. Utilize nextjs 
-2. Teach how to create pages
-3. Teach how to create links
-4. Teach how to make a dropdown menu
-5. Teach how to convert that to a component
-6. Abstract the components content into configuration and props externalizing the data
-7. 
+1. Create a react site using nextjs
+
+    1. Create a set of 3 pages
+    2. Create a set of static links to go to those pages from the main page
+2. Create a navigation bar
+
+    1. Abstract that set of links out into its own component
+    2. Include that component inside all pages
+3. Create a dropdown menu
+
+    1. Create a dropdown menu inside one of the pages
+    2. Abstract the dropdown into its own component
+    3. Add props for controlling the dropdown and its content
+    4. Externalize data from the dropdown
